@@ -7,7 +7,17 @@ const {MongoClient} = require("mongodb");
 const app = express();
 const db_url = process.env.MONGO_URL;
 
+app.use(
+    cors({
+        origin: "http://localhost:5173",
+    })
+)
 
+// app.use(cors({
+//   origin: "https://pixel-horse-assessment-harshavardhan.onrender.com",
+//   methods: ["GET", "POST", "PUT", "DELETE"],
+//   credentials: true
+// }));
 // async function run(){
 //     try{
 //         const client = new MongoClient(db_url);
