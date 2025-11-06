@@ -1,9 +1,14 @@
 //creating the server for the Nutrition food application 
+require("dotenv").config();
+console.log(process.env.MONGO_URL);
+console.log(process.env.PORT)
 const express = require('express');
 const mongoose = require('mongoose');
 const {MongoClient} = require("mongodb");
 const app = express();
-const db_url = 'mongodb+srv://adminhar:admin123@cluster0.axogu3b.mongodb.net/?appName=Cluster0';
+const db_url = process.env.MONGO_URL;
+
+
 // async function run(){
 //     try{
 //         const client = new MongoClient(db_url);
