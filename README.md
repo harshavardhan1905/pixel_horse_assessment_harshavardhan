@@ -1,1 +1,0 @@
-# pixel_horse_assessment_harshavardhan
