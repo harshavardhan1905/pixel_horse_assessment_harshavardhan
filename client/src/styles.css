@@ -1,0 +1,155 @@
+/* Home page CSS start */
+.food-card{
+    height:256px;
+    width: 208px;
+    border-radius: 32px;
+    border:solid 1px #949494;
+    background-color: #f2efee;
+    display: flex;
+    justify-content: center;  /* centers horizontally */
+    align-items: center;
+    margin: 10px;
+}
+.food-card-con{
+    padding: 10%;
+    margin: 0;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.food-img {
+  width: 180px;
+  height: 180px;
+  object-fit: contain; /* prevents stretching */
+}
+.middle-left{
+    text-align: left;
+}
+.search-div{
+    justify-items: left;
+    text-align:left;
+}
+.search-div a{
+    position: absolute;
+    background-color: orange;
+    height: 35px;
+    width: 30px;
+    border-radius: 0px 10px 10px 0px;
+    cursor: pointer;
+    padding: 4px;
+}
+.search-bar{
+    background-color: #f5eded;
+    border-collapse: collapse;
+    width: 250px;
+    height: 35px;
+    color: black;
+    border: none;
+    border-radius:  10px 0px 0px 10px;
+}
+.cat-img{
+    height: 60px;
+      background: transparent;
+}
+.category{
+    background-color: #f6eeee;
+    height: 200px;
+    width: 250px;
+    border: solid 1px rgb(209, 196, 196);
+    border-radius: 10px;
+    display:flex ;
+    display: grid;
+    text-align: left;
+    padding: 15px;
+  cursor: pointer;
+}
+.product-cat{
+    font-size: 17px;
+}
+
+/* Home page CSS end */
+
+/* Product page CSS start */
+
+.products-container{
+    text-align: left;
+}
+.product-titles span{
+    font-size: 30px;
+    font-weight: lighter;
+}
+.products-nav{
+    border: solid 1px red;
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+.card-p{
+    width: 200px;
+    height: 250px;
+    border: solid 1px rgb(222, 218, 218);
+    border-radius: 18px;
+    text-align: left;
+    padding: 0;
+    margin: 4px;
+}
+.card-p img{
+    height: 100px;
+    width: 100px;
+    
+}
+.btns{
+    justify-content: space-between;
+    padding: 4px;
+}
+.bt{
+    margin: 2px;
+}
+.btn-buy{
+    background-color: #008000b8;
+}
+.btn-add{
+    background-color: #0000ffa1;
+}
+.img-con{
+    padding: 43px 43px 0px 43px;
+    display: grid;
+}
+/* Product page CSS end */
+
+/* Admin page CSS start */
+.top-admin{
+    padding: 10px;
+}
+.top-admin a{
+    font-size: 30px;
+    color: red;
+}
+.middle-admin{
+    text-align: center;
+    
+}
+.btn-admin{
+    margin: 5px;
+}
+.table-admin{
+    border: solid 1px red;
+    justify-content: space-between;
+    padding: 10px;
+    margin: 10px;
+}
+.tr-head-admin{
+    background-color: rgb(225, 224, 217);
+}
+.th-admin{
+    border: solid 1px black;
+    padding: 10px;
+    margin: 10px;
+}
+.th-admin:hover{
+    background-color: rgb(208, 166, 166);
+}
+/* Admin page CSS end */

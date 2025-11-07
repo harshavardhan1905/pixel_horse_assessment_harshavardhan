@@ -1,18 +1,21 @@
 import { useEffect, useState } from 'react';
+import ReactDom from 'react-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Home from './comps/Home'
+import Admin from './admin/Admin';
 import './App.css'
 
 function App() {
-  const [data, setData] = new useState([]);
- useEffect( ()=>{
-  fetch('http://localhost:8000/api/products')
- .then(res => res.json())
- .then(data => setData(data))
- .then(err => console.log(err))
- }, [])
- console.log(data)
+
   return (
     <>
-      <h1>Hello</h1>
+      <BrowserRouter>
+        <Routes>
+            <Route path="/" element={<Home />}/>
+            <Route path='/admin' element={<Admin/>} />
+
+        </Routes>
+      </BrowserRouter>
     </>
   )
 }

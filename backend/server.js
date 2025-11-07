@@ -5,38 +5,51 @@ const mongoose = require('mongoose');
 const cors = require("cors");
 const {MongoClient} = require("mongodb");
 const app = express();
+const now = new Date().toISOString();
 const db_url = process.env.MONGO_URL;
+//mongodb connection
+mongoose.connect(process.env.MONGO_URL)
 
+//middleware
+app.use(express.json());
+app.use(express.urlencoded({extended: false}));
 app.use(
     cors({
         origin: "http://localhost:5173",
     })
 )
 
-// app.use(cors({
-//   origin: "https://pixel-horse-assessment-harshavardhan.onrender.com",
-//   methods: ["GET", "POST", "PUT", "DELETE"],
-//   credentials: true
-// }));
-// async function run(){
-//     try{
-//         const client = new MongoClient(db_url);
-//         await client.connect();
-//         const db = client.db("harshadb");
-//         const data = await db.collection('products').findAll().toArray();
-//         res.json(data);   
-//     }catch(err){
-//         console.log(err.stack)
-//     }
-// }
-// run().catch(console.dir);
+
+app.post('/api/add/product', async(req, res)=>{
+    try{
+        const client = new MongoClient(db_url);
+        await client.connect();
+        const db =  client.db('harshadb');
+        console.log(req.body)
+        const data = {
+            product_id: req.body.product_id,
+            product_name: req.body. product_name,
+            product_price: req.body. product_price,
+            product_category: req.body. product_category,
+            product_image: req.body. product_image,
+            added_date: req.body.addedd_date ||now
+        };
+
+        const productsData = await db.collection("products").insertOne(data);
+        console.log(data);
+        res.status(201).json(productsData); 
+    }catch(err){
+        console.log(err)
+    }
+    
+});
 app.get('/api/products', async(req, res)=>{
     // res.send("Hello");
     try{
         const client = new MongoClient(db_url);
         await client.connect();
-        const db =  client.db('employee');
-        const data = await db.collection('demoUser').find().toArray();
+        const db =  client.db('harshadb');
+        const data = await db.collection('products').find().toArray();
         console.log(data);
         res.json(data);
     }catch(err){
