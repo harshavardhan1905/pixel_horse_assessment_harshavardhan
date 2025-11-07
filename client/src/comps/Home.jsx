@@ -10,9 +10,11 @@ import Flour from '../assets/flour.png'
 import Products from './Products';
 import { FaShoppingCart } from "react-icons/fa";
 import { FaSearch } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 
 export default function Home() {
+      const navigate = useNavigate();
     const [data, setData] = new useState([]);
     useEffect(() => {
         // fetch('https://pixel-horse-assessment-harshavardhan.onrender.com/api/products')
@@ -54,6 +56,7 @@ export default function Home() {
                                 <li className="nav-item"><a className="nav-link" href="#">FAQ</a></li>
                                 <li className="nav-item"><a className="nav-link" href="#">About</a></li>
                                 <li className="nav-item"><a className="nav-link" href="#">Contact</a></li>
+                                <li className="nav-item"><a className="nav-link" href="#" onClick={() => navigate("/admin")}>Admin</a></li>
                             </ul>
 
                             {/* Right Side Buttons */}
