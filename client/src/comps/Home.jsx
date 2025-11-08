@@ -8,6 +8,8 @@ import Spices from '../assets/spice-masala.png'
 import Honey from '../assets/honey.png'
 import Flour from '../assets/flour.png'
 import Products from './Products';
+import FAQs from '../comps/homenavs/FAQs'
+import About from '../comps/homenavs/About'
 import { FaShoppingCart } from "react-icons/fa";
 import { FaSearch } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
@@ -15,15 +17,12 @@ import { useNavigate } from "react-router-dom";
 
 export default function Home() {
       const navigate = useNavigate();
-    const [data, setData] = new useState([]);
-    useEffect(() => {
-        // fetch('https://pixel-horse-assessment-harshavardhan.onrender.com/api/products')
-        fetch('http://localhost:8000/api/products')
-            .then(res => res.json())
-            .then(data => setData(data))
-            .then(err => console.log(err))
-    }, [])
-    console.log(data)
+    
+    const [search, setSearch] = useState("");
+    
+    
+   
+  
     return (
         <>
             <div className="">
@@ -51,12 +50,12 @@ export default function Home() {
                             {/* Left Side Menu */}
                             <ul className="navbar-nav me-auto mb-2 mb-lg-0 gap-3">
                                 <li className="nav-item"><a className="nav-link" href="#">Home</a></li>
-                                <li className="nav-item"><a className="nav-link" href="#">Categories</a></li>
+                                <li className="nav-item"><a className="nav-link" href="#products">Categories</a></li>
                                 <li className="nav-item"><a className="nav-link" href="#">Sales</a></li>
-                                <li className="nav-item"><a className="nav-link" href="#">FAQ</a></li>
+                                <li className="nav-item"><a className="nav-link" href="#faq">FAQ</a></li>
                                 <li className="nav-item"><a className="nav-link" href="#">About</a></li>
                                 <li className="nav-item"><a className="nav-link" href="#">Contact</a></li>
-                                <li className="nav-item"><a className="nav-link" href="#" onClick={() => navigate("/admin")}>Admin</a></li>
+                                <li className="nav-item"><a className="nav-link" href="#"  style={{"color":"red", "fontSize":"20px", "fontWeight":"bold"}} onClick={() => navigate("/admin")}>Admin</a></li>
                             </ul>
 
                             {/* Right Side Buttons */}
@@ -78,9 +77,10 @@ export default function Home() {
                         <p>Find your foundation. NUTRABALANCE is the subtle harmony that transforms good health into a beautiful, vibrant life.</p>
 
                         <div name="search">
+
                             <div className='search-div'>
-                                <input type="text" placeholder='Search here..' className='search-bar' />
-                                <a><FaSearch size={22} color="black" /></a>
+                                <input type="text" placeholder='Search here..' className='search-bar' onChange={(e)=> setSearch(e.target.value)}/>
+                                <a><FaSearch size={22} color="black" onClick={handleSearchClick}/></a>
                             </div>
                             <div className='d-flex'>
                                 <ul>
@@ -165,9 +165,12 @@ export default function Home() {
                     </div>
                 </section>
 
-                <section name='products'>
+                <section name='products' id='products'>
                     <Products />
                 </section>
+
+                    <FAQs />
+                    <About />
             </div>
 
         </>

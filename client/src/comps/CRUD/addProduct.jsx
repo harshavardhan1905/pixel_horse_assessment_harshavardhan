@@ -18,6 +18,10 @@ export default function AddProductForm() {
         product_category: category,
         product_image:image,
         added_date : added_date
+    }).then((res)=> {
+       if(res.status==201){
+        alert("Addedd product")
+       }
     })
   
   };
@@ -49,13 +53,20 @@ export default function AddProductForm() {
         required
       />
 
-      <input
+      {/* <input
         type="text"
         name="product_category"
         placeholder="Product Category"
         className="form-control mb-2"
         required
-      />
+      /> */}
+      <select name="product_category" id="" required>
+        <option value="DAIRY">DAIRY</option>
+        <option value="VEGETABLE_FRUITS">VEGETABLE_FRUITS</option>
+        <option value="SPICES_SEASONING">SPICES_SEASONING</option>
+        <option value="HONEY">HONEY</option>
+        <option value="FLOUR">FLOUR</option>
+      </select>
 
       <input
         type="text"

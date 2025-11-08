@@ -121,6 +121,26 @@
 /* Product page CSS end */
 
 /* Admin page CSS start */
+
+.middle-admin {
+    /* width: 100%; */
+    display: flex;
+    justify-content: space-between;
+}
+
+.table-admin {
+    width: 100%;
+    border: 1px solid red;
+    padding: 10px;
+    margin: 0; /* remove margin so it touches full width */
+    border-collapse: collapse;
+}
+
+.th-admin {
+    border: 1px solid black;
+    padding: 10px;
+}
+
 .top-admin{
     padding: 10px;
 }
@@ -152,4 +172,119 @@
 .th-admin:hover{
     background-color: rgb(208, 166, 166);
 }
+.center-wrapper {
+  display: flex;
+  justify-content: center;      /* horizontal center */
+  align-items: center;          /* vertical center */
+  height: 100vh;                /* fill full screen */
+  width: 100%;
+  text-align: center;
+}
+
+.ssection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 /* Admin page CSS end */
+
+/* FAQs page CSS start */
+.faq-wrapper {
+  max-width: 700px;
+  margin: 50px auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.faq-title {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.faq-item {
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+  border-radius: 6px;
+}
+
+.faq-question {
+  background: #f5f5f5;
+  padding: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.faq-answer {
+  padding: 15px;
+  background: white;
+  border-top: 1px solid #ddd;
+}
+
+.faq-icon {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+/* FAQs page CSS end */
+/* about page CSS end */
+.about-wrapper {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  line-height: 1.7;
+}
+
+.about-title {
+  text-align: center;
+  font-size: 32px;
+  margin-bottom: 20px;
+  color: #2b5b2e;
+}
+
+.about-text {
+  font-size: 17px;
+  margin-bottom: 16px;
+}
+
+.section-title {
+  font-size: 26px;
+  margin-top: 40px;
+  margin-bottom: 12px;
+  color: #2b5b2e;
+}
+
+.founder-card {
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  align-items: center;
+  background: #fafafa;
+}
+
+.founder-img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+}
+
+.contact-section p {
+  margin: 6px 0;
+}
+
+a {
+  color: #0066cc;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* about page CSS end */

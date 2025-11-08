@@ -1,7 +1,21 @@
-import React from 'react'
-import Flour from '../assets/flour.png'
+import { useState } from 'react';
+import { useEffect } from 'react';
 
-export default function Products() {
+export default function Products({search}) {
+    const[products, setProducts] = useState([]);
+    const[searchProdcuts, setsearchProducts] = useState([]);
+
+    useEffect(()=>{
+        fetch("http://localhost:8000/api/products")
+        .then((result)=> result.json())
+        .then((result)=> setProducts(result))
+        .then((err)=> console.log(err))
+    },[])
+    console.log(typeof search);
+    
+    
+    
+    
   return (
     <>
         <div className='products-container'>
@@ -10,107 +24,22 @@ export default function Products() {
             </div>
             <div name="product-view" className='product-view'>
                 <div className='products-nav'>
-                    <div className='card-p'>
-                        <div className='img-con'>
-                            <img src={Flour} alt="" />
-                            <span>Product name</span>
-                            <span>Rs.100</span>
-                        </div>
-                        <div className='btns'>
-                            <button className='btn-buy bt'>Buy</button>
-                            <button className='btn-add'>Add to cart</button>
-                        </div>
-                    </div>
-                    <div className='card-p'>
-                        <div className='img-con'>
-                            <img src={Flour} alt="" />
-                            <span>Product name</span>
-                            <span>Rs.100</span>
-                        </div>
-                        <div className='btns'>
-                            <button className='btn-buy bt'>Buy</button>
-                            <button className='btn-add'>Add to cart</button>
-                        </div>
-                    </div>
-                    <div className='card-p'>
-                        <div className='img-con'>
-                            <img src={Flour} alt="" />
-                            <span>Product name</span>
-                            <span>Rs.100</span>
-                        </div>
-                        <div className='btns'>
-                            <button className='btn-buy bt'>Buy</button>
-                            <button className='btn-add'>Add to cart</button>
-                        </div>
-                    </div>
-                    <div className='card-p'>
-                        <div className='img-con'>
-                            <img src={Flour} alt="" />
-                            <span>Product name</span>
-                            <span>Rs.100</span>
-                        </div>
-                        
-                        <div className='btns'>
-                            <button className='btn-buy bt'>Buy</button>
-                            <button className='btn-add'>Add to cart</button>
-                        </div>
-                    </div>
-                    <div className='card-p'>
-                        <div className='img-con'>
-                            <img src={Flour} alt="" />
-                            <span>Product name</span>
-                            <span>Rs.100</span>
-                        </div>
-                        <div className='btns'>
-                            <button className='btn-buy bt'>Buy</button>
-                            <button className='btn-add'>Add to cart</button>
-                        </div>
-                    </div>
-                    <div className='card-p'>
-                        <div className='img-con'>
-                            <img src={Flour} alt="" />
-                            <span>Product name</span>
-                            <span>Rs.100</span>
-                        </div>
-                        <div className='btns'>
-                            <button className='btn-buy bt'>Buy</button>
-                            <button className='btn-add'>Add to cart</button>
-                        </div>
-                    </div>
-                    <div className='card-p'>
-                        <div className='img-con'>
-                            <img src={Flour} alt="" />
-                            <span>Product name</span>
-                            <span>Rs.100</span>
-                        </div>
-                        <div className='btns'>
-                            <button className='btn-buy bt'>Buy</button>
-                            <button className='btn-add'>Add to cart</button>
-                        </div>
-                    </div>
+                    {products.map((item, id)=>(
 
+                   
                     <div className='card-p'>
                         <div className='img-con'>
-                            <img src={Flour} alt="" />
-                            <span>Product name</span>
-                            <span>Rs.100</span>
+                            <img src={item.product_image} alt="" />
+                            <span>{item.product_name}</span>
+                            <span>Rs.{item.product_price}</span>
                         </div>
                         <div className='btns'>
                             <button className='btn-buy bt'>Buy</button>
                             <button className='btn-add'>Add to cart</button>
                         </div>
                     </div>
-                    <div className='card-p'>
-                        <div className='img-con'>
-                            <img src={Flour} alt="" />
-                            <span>Product name</span>
-                            <span>Rs.100</span>
-                        </div>
-                        <div className='btns'>
-                            <button className='btn-buy bt'>Buy</button>
-                            <button className='btn-add'>Add to cart</button>
-                        </div>
-                    </div>
+                     ))}
+                    
                 </div>
             </div>
         </div>
