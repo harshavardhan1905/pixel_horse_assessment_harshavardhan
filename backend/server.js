@@ -123,6 +123,23 @@ app.patch('/api/update/product/:id', async(req, res)=>{
 app.get('/', (req, res)=>{
     res.send("Wellcome! to api");
 })
+//user register
+app.post('/api/user/register', async(req, res)=>{
+    const data = {
+        name: req.body.name,
+        email: req.body.name,
+        password: req.body.password
+    }
+    try{
+        const client = new MongoClient(db_url);
+        await client.connect();
+        const db =  client.db('harshadb');
+        const productsData = await db.collection("users").insertOne(data);
+        res.status(201).json(productsData)    
+    }catch(err){
+        console.log(err);
+    }
+})
 
 
 

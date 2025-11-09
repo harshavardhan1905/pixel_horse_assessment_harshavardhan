@@ -8,6 +8,7 @@ import Spices from '../assets/spice-masala.png'
 import Honey from '../assets/honey.png'
 import Flour from '../assets/flour.png'
 import Products from './Products';
+import { FaTrash } from "react-icons/fa";
 import FAQs from '../comps/homenavs/FAQs'
 import About from '../comps/homenavs/About'
 import { FaShoppingCart } from "react-icons/fa";
@@ -15,14 +16,24 @@ import { FaSearch } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 
 
+
 export default function Home() {
-      const navigate = useNavigate();
-    
+    const navigate = useNavigate();
     const [search, setSearch] = useState("");
-    
-    
-   
-  
+    const [page, setPage] = useState(null);
+    let cart = JSON.parse(localStorage.getItem("cartProducts"));
+    // cart.map((item)=>{
+    //     console.log(item.product_id)
+    // })
+    const deleteHandler = (id) =>{
+          cart = cart.filter(item => item.product_id != id);
+          localStorage.setItem("cartProducts", JSON.stringify(cart));
+          alert("Deleted item from the cart")
+          cart = JSON.parse(localStorage.getItem("cartProducts"));
+    }
+
+
+
     return (
         <>
             <div className="">
@@ -53,19 +64,59 @@ export default function Home() {
                                 <li className="nav-item"><a className="nav-link" href="#products">Categories</a></li>
                                 <li className="nav-item"><a className="nav-link" href="#">Sales</a></li>
                                 <li className="nav-item"><a className="nav-link" href="#faq">FAQ</a></li>
-                                <li className="nav-item"><a className="nav-link" href="#">About</a></li>
-                                <li className="nav-item"><a className="nav-link" href="#">Contact</a></li>
-                                <li className="nav-item"><a className="nav-link" href="#"  style={{"color":"red", "fontSize":"20px", "fontWeight":"bold"}} onClick={() => navigate("/admin")}>Admin</a></li>
+                                <li className="nav-item"><a className="nav-link" href="#contact">About</a></li>
+                                <li className="nav-item"><a className="nav-link" href="#contact">Contact</a></li>
+                                <li className="nav-item"><a className="nav-link" href="#" style={{ "color": "red", "fontSize": "20px", "fontWeight": "bold" }} onClick={() => navigate("/admin")}>Admin</a></li>
                             </ul>
 
                             {/* Right Side Buttons */}
                             <div className="d-flex gap-2">
-                                <button className="btn btn-outline-primary">
-                                     <FaShoppingCart size={18} style={{ marginRight: "6px" }} />
+                                <button className="btn btn-outline-primary" onClick={() => { setPage("cart") }}>
+                                    <FaShoppingCart size={18} style={{ marginRight: "6px" }} />
                                 </button>
-                                <button className="btn btn-outline-success">Sign In</button>
-                                <button className="btn btn-primary">Sign Up</button>
+                                <button className="btn btn-outline-success" onClick={() => { navigate("/login") }}>Sign In</button>
+                                <button className="btn btn-primary" onClick={() => { navigate("/register") }}>Sign Up</button>
                             </div>
+                            {/* cart products */}
+
+                            {page == 'cart' && (
+                                <div className="overlay">
+                                    <div className="popup">
+                                        <button className="close-btn" onClick={() => { setPage(null) }}>X</button>
+
+                                        <div className="product-details">
+                                            <ol>
+                                                {cart.map((item) => (
+                                                    <li style={{ "display": "flex" }}>
+                                                        <div className="left-section">
+                                                            <img src={item.product_image} alt="Product" />
+                                                        </div>
+
+                                                        <div className="right-section">
+                                                            <h2 style={{"fontWeight": "bold"}}>{item.product_name}</h2>
+                                                            <p>Price: ₹{item.product_price}</p>
+                                                           
+                                                        </div>
+                                                         <div className='del-sec' onClick={()=>{deleteHandler(item.product_id)}}>
+                                                            <FaTrash
+                                                                className="text-danger"
+                                                                style={{ cursor: "pointer" }}
+                                                                
+                                                            />
+                                                         </div>
+
+                                                    </li>
+                                                ))}
+                                                <button className="pay-btn">Proceed to Payment</button>
+                                            </ol>
+
+                                        </div>
+
+                                    </div>
+                                </div>
+                            )}
+
+
 
                         </div>
                     </div>
@@ -79,8 +130,8 @@ export default function Home() {
                         <div name="search">
 
                             <div className='search-div'>
-                                <input type="text" placeholder='Search here..' className='search-bar' onChange={(e)=> setSearch(e.target.value)}/>
-                                <a><FaSearch size={22} color="black" onClick={handleSearchClick}/></a>
+                                <input type="text" placeholder='Search here..' className='search-bar' onChange={(e) => setSearch(e.target.value)} />
+                                <a><FaSearch size={22} color="black" /></a>
                             </div>
                             <div className='d-flex'>
                                 <ul>
@@ -122,55 +173,55 @@ export default function Home() {
                 <section name="bottom">
                     <div className='d-flex justify-content-between'>
                         <div className='category'>
-                            <img src={DairyProducts} alt="imsgr" className='cat-img'/>
+                            <img src={DairyProducts} alt="imsgr" className='cat-img' />
                             <div>
-                                <span style={{"font-weight":"bold"}} className='product-cat'>Dairy Products</span> <br />
+                                <span style={{ "fontWeight": "bold" }} className='product-cat'>Dairy Products</span> <br />
                                 <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</span>
                             </div>
 
                         </div>
                         <div className='category'>
-                            <img src={VegandFrts} alt="imsgr" className='cat-img'/>
+                            <img src={VegandFrts} alt="imsgr" className='cat-img' />
                             <div>
-                                <span style={{"font-weight":"bold"}} className='product-cat'>Vegetable and Fruits</span> <br />
+                                <span style={{ "font-weight": "bold" }} className='product-cat'>Vegetable and Fruits</span> <br />
                                 <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</span>
                             </div>
 
                         </div>
                         <div className='category'>
-                            <img src={Spices} alt="imsgr" className='cat-img'/>
+                            <img src={Spices} alt="imsgr" className='cat-img' />
                             <div>
-                                <span style={{"font-weight":"bold"}} className='product-cat'>Spices & Seasonings</span> <br />
+                                <span style={{ "font-weight": "bold" }} className='product-cat'>Spices & Seasonings</span> <br />
                                 <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</span>
                             </div>
 
                         </div>
                         <div className='category'>
-                            <img src={Honey} alt="imsgr" className='cat-img'/>
+                            <img src={Honey} alt="imsgr" className='cat-img' />
                             <div>
-                                <span style={{"font-weight":"bold"}} className='product-cat'>Honey</span> <br />
+                                <span style={{ "font-weight": "bold" }} className='product-cat'>Honey</span> <br />
                                 <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</span>
                             </div>
 
                         </div>
                         <div className='category'>
-                            <img src={Flour} alt="imsgr" className='cat-img'/>
+                            <img src={Flour} alt="imsgr" className='cat-img' />
                             <div>
-                                <span style={{"font-weight":"bold"}} className='product-cat'>Flour</span> <br />
+                                <span style={{ "font-weight": "bold" }} className='product-cat'>Flour</span> <br />
                                 <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</span>
                             </div>
 
                         </div>
-                        
+
                     </div>
                 </section>
 
                 <section name='products' id='products'>
-                    <Products />
+                    <Products search={search} />
                 </section>
 
-                    <FAQs />
-                    <About />
+                <FAQs />
+                <About />
             </div>
 
         </>
