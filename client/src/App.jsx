@@ -8,6 +8,7 @@ import Products from './comps/Products'
 import './App.css'
 import Login from './comps/Logins/SignIn';
 import Register from './comps/Logins/SignUp'
+import AdminLogin from './admin/admin-login'
 
 function App() {
 
@@ -21,6 +22,7 @@ function App() {
             <Route path='/delete' element={<Delete/>} />
             <Route path='/login' element={<Login/>} />
             <Route path='/register' element={<Register/>} />
+          <Route path='/admin-login' element={<AdminLogin/>} />
 
         </Routes>
       </BrowserRouter>
