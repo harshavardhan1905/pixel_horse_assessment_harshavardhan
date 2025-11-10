@@ -8,7 +8,7 @@ export default function DeleteProduct() {
     e.preventDefault();
     const id = e.target.search_id.value;
 
-    axios.delete(`http://localhost:8000/api/delete/product/${id}`)
+    axios.delete(`https://pixel-horse-assessment-harshavardhan.onrender.com/api/delete/product/${id}`)
       .then((res) => {
         console.log(res.data);
         if (res.data.deleted) {
@@ -76,3 +76,4 @@ export default function DeleteProduct() {
     </div>
   );
 }
+
