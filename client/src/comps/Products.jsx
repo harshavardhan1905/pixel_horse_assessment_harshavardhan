@@ -9,7 +9,7 @@ export default function Products({ search }) {
     // const [Cart, setCart] = useState([]);
 
     useEffect(() => {
-        fetch("http://localhost:8000/api/products")
+        fetch("https://pixel-horse-assessment-harshavardhan.onrender.com/api/products")
             .then((result) => result.json())
             .then((result) => {setProducts(result); setselectedProduct(result)})
             .then((err) => console.log(err))
@@ -124,3 +124,4 @@ export default function Products({ search }) {
         </>
     )
 }
+
