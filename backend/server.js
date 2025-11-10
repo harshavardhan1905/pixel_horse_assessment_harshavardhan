@@ -121,7 +121,7 @@ app.patch('/api/update/product/:id', async(req, res)=>{
 })
 //api for get the data
 app.get('/', (req, res)=>{
-    res.send("Wellcome! to api");
+    res.send("Wellcome! to api's for assessment");
 })
 //user register
 app.post('/api/user/register', async(req, res)=>{
@@ -148,3 +148,4 @@ app.listen(PORT, ()=>{
     console.log(`Server is running on port ${PORT}`)
 
 })
+
