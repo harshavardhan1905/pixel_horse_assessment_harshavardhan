@@ -5,6 +5,7 @@
     border-radius: 32px;
     border:solid 1px #949494;
     background-color: #f2efee;
+     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     display: flex;
     justify-content: center;  /* centers horizontally */
     align-items: center;
@@ -55,6 +56,7 @@
 }
 .category{
     background-color: #f6eeee;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     height: 200px;
     width: 250px;
     border: solid 1px rgb(209, 196, 196);

@@ -37,7 +37,7 @@ export default function Home() {
     return (
         <>
             <div className="">
-                <nav name='top' className="navbar navbar-expand-lg fixed-top">
+                <nav name='top' className="navbar navbar-expand-lg fixed-top" style={{"background-color":"whitesmoke"}}>
                     <div className="container-fluid">
 
                         {/* Logo / Brand */}
