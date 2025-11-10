@@ -83,7 +83,7 @@
     font-weight: lighter;
 }
 .products-nav{
-    border: solid 1px red;
+    /* border: solid 1px red; */
     padding: 10px;
     display: flex;
     flex-wrap: wrap;
@@ -407,6 +407,7 @@ a:hover {
 }
 
 /* cart page CSS end */
+
 
 
 
