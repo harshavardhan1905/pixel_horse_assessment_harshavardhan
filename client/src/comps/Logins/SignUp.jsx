@@ -10,7 +10,7 @@ const Signup = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("Registered:", { name, email, password });
-    axios.post("http://localhost:8000/api/user/register",{
+    axios.post("https://pixel-horse-assessment-harshavardhan.onrender.com/api/user/register",{
         name: name,
         email: email,
         password: password
@@ -80,3 +80,4 @@ const Signup = () => {
 };
 
 export default Signup;
+
