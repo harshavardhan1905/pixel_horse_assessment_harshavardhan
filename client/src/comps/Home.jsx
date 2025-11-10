@@ -66,7 +66,7 @@ export default function Home() {
                                 <li className="nav-item"><a className="nav-link" href="#faq">FAQ</a></li>
                                 <li className="nav-item"><a className="nav-link" href="#contact">About</a></li>
                                 <li className="nav-item"><a className="nav-link" href="#contact">Contact</a></li>
-                                <li className="nav-item"><a className="nav-link" href="#" style={{ "color": "red", "fontSize": "20px", "fontWeight": "bold" }} onClick={() => navigate("/admin")}>Admin</a></li>
+                                <li className="nav-item"><a className="nav-link" href="#" style={{ "color": "red", "fontSize": "20px", "fontWeight": "bold" }} onClick={() => navigate("/admin-login")}>Admin</a></li>
                             </ul>
 
                             {/* Right Side Buttons */}
@@ -227,4 +227,5 @@ export default function Home() {
         </>
     )
 }
+
 
