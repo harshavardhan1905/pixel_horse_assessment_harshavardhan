@@ -15,7 +15,7 @@ app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 app.use(
     cors({
-        origin: "http://localhost:5173",
+        origin: "https://frontend-pixel-horse.onrender.com",
     })
 )
 
@@ -146,4 +146,5 @@ app.post('/api/user/register', async(req, res)=>{
 const PORT = process.env.PORT || 8000;
 app.listen(PORT, ()=>{
     console.log(`Server is running on port ${PORT}`)
+
 })
