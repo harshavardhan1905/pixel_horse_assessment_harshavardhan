@@ -13,7 +13,7 @@ export default function Update({ product }) {
         const added_date = e.target.added_date.value || now;
         const updated_date = now;
         console.log(id, name, price,category, image, added_date , updated_date)
-        axios.patch(`http://127.0.0.1:8000/api/update/product/${id}`,{
+        axios.patch(`https://pixel-horse-assessment-harshavardhan.onrender.com/api/update/product/${id}`,{
             product_id: id,
             product_name: name,
             product_price: price,
@@ -89,3 +89,4 @@ export default function Update({ product }) {
     </div>
   )
 }
+
