@@ -122,7 +122,7 @@ export default function Home() {
                     </div>
                 </nav>
 
-                <section name="middle" className='navbar navbar-expand-lg '>
+                <section name="middle" className='navbar navbar-expand-lg ' style={{"margin-top": "21px"}}>
                     <div className='middle-left'>
                         <h1>Let your <p style={{ "color": "red", }}>Health</p> come to you</h1>
                         <p>Find your foundation. NUTRABALANCE is the subtle harmony that transforms good health into a beautiful, vibrant life.</p>
@@ -227,3 +227,4 @@ export default function Home() {
         </>
     )
 }
+
