@@ -12,14 +12,14 @@ export default function Admin() {
     const [data, setData] =  useState([])
 
     useEffect(() => {
-        fetch("http://localhost:8000/api/products")
+        fetch("https://pixel-horse-assessment-harshavardhan.onrender.com/api/products")
             .then((res) => res.json())
             .then((result) => setData(result))
             .catch((err) => console.log(err))
     }, [])
     
     const fetchProducts = () =>{
-        fetch("http://localhost:8000/api/products")
+        fetch("https://pixel-horse-assessment-harshavardhan.onrender.com/api/products")
             .then((res) => res.json())
             .then((result) => setData(result))
             .catch((err) => console.log(err))
@@ -27,7 +27,7 @@ export default function Admin() {
 
     const  deleteProduct=(id)=>{
         if (!window.confirm("Are you sure you want to delete this product?")) return;
-        axios.delete(`http://localhost:8000/api/delete/product/${id}`)
+        axios.delete(`https://pixel-horse-assessment-harshavardhan.onrender.com/api/delete/product/${id}`)
          .then((res) => {
             alert(res.data.message)
             fetchProducts();
@@ -105,3 +105,4 @@ export default function Admin() {
         </>
     )
 }
+
