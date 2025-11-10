@@ -11,7 +11,7 @@ export default function AddProductForm() {
     const image = e.target.product_image.value;
     const added_date = e.target.added_date.value || now;
     console.log(id, name, price,category, image, added_date)
-    axios.post("http://127.0.0.1:8000/api/add/product",{
+    axios.post("https://pixel-horse-assessment-harshavardhan.onrender.com/api/add/product",{
         product_id: id,
         product_name: name,
         product_price: price,
@@ -85,3 +85,4 @@ export default function AddProductForm() {
     </form>
   );
 }
+
